@@ -118,6 +118,7 @@ $(function(){
   $('#search').click(function(){
     var obj = {}
     var selected = [];
+
     $('input').each(function(index, input){
       obj[index] = $(input).is(":checked");
     })
@@ -128,11 +129,21 @@ $(function(){
     }
     var flag = false;
     var name;
+    var possibles = [];
     sicknesses.forEach(function(sickness){
       if (sickness.symptoms.equals(selected)) {
         flag = true;
         name = sickness.name;
       }
+      selected.forEach(function(sel){
+        if (sickness.symptoms.includes(parseInt(sel)) === true) {
+          console.log(possibles.indexOf(sickness.name))
+          if (possibles.indexOf(sickness.name) === -1) {
+            possibles.push(sickness.name);
+          }
+        }
+      })
+
     })
     if (flag === true) {
       $('.title').html(`El diagnóstico es ${name}.`);
@@ -140,5 +151,13 @@ $(function(){
     else{
       $('.title').html(`No hay un diagnóstico especificado.`);
     }
+    if (possibles.length !== 0) {
+      $('.possibles').html('')
+      $('.possibles').append(`Pero hemos encontrado unas posibilidades <ul></ul>`)
+      possibles.forEach(function(possible){
+        $('ul').append(`<li>${possible}</li>`);
+      })
+    }
+    console.log(possibles);
   })
 })
