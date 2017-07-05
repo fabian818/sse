@@ -1,4 +1,22 @@
-sicknesses = [
+Array.prototype.equals = function (array) {
+  if (!array)
+  return false;
+
+  if (this.length != array.length)
+  return false;
+
+  for (var i = 0, l=this.length; i < l; i++) {
+    if (this[i] instanceof Array && array[i] instanceof Array) {
+      if (!this[i].equals(array[i]))
+      return false;
+    }
+    else if (this[i] != array[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+var sicknesses = [
   {
     name: 'Caries',
     symptoms: [0, 1, 2, 3]
@@ -99,15 +117,28 @@ $(function(){
   // Search listener
   $('#search').click(function(){
     var obj = {}
+    var selected = [];
     $('input').each(function(index, input){
-      if ($(input).is(":checked"))
-      {
-        obj[index] = true;
+      obj[index] = $(input).is(":checked");
+    })
+    for (var k in obj) {
+      if (obj[k] === true) {
+        selected.push(k)
       }
-      else{
-        obj[index] = false;
+    }
+    var flag = false;
+    var name;
+    sicknesses.forEach(function(sickness){
+      if (sickness.symptoms.equals(selected)) {
+        flag = true;
+        name = sickness.name;
       }
     })
-    console.log(obj);
+    if (flag === true) {
+      $('.title').html(`El diagnóstico es ${name}.`);
+    }
+    else{
+      $('.title').html(`No hay un diagnóstico especificado.`);
+    }
   })
 })
