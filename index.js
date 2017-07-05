@@ -1,7 +1,31 @@
 sicknesses = [
   {
     name: 'Caries',
-    symptoms: []
+    symptoms: [0, 1, 2, 3]
+  },
+  {
+    name: 'Gingivitis',
+    symptoms: [4, 5, 6]
+  },
+  {
+    name: 'Periodontitis',
+    symptoms: [3, 6, 7, 8]
+  },
+  {
+    name: 'Halitosis',
+    symptoms: [6]
+  },
+  {
+    name: 'Enfermedad periodontal',
+    symptoms: [6, 9, 10, 11, 12]
+  },
+  {
+    name: 'Aftas',
+    symptoms: [10, 13, 14]
+  },
+  {
+    name: 'Leucoplasia',
+    symptoms: [15, 16, 17, 18]
   }
 ]
 
@@ -28,7 +52,13 @@ var symptoms = [
     name: 'Mal aliento'
   },
   {
-    name: 'Sangrado'
+    name: 'Sangrado al cepillar'
+  },
+  {
+    name: 'Sangrado al comer'
+  },
+  {
+    name: 'Sangrado inexplicable'
   },
   {
     name: 'Dolor'
@@ -47,6 +77,9 @@ var symptoms = [
   },
   {
     name: 'Manchas blancas'
+  },
+  {
+    name: 'Áreas irregulares'
   },
   {
     name: 'Engrosamientos'
