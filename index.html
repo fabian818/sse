@@ -5,16 +5,23 @@
   <title></title>
   <script src="node_modules/jquery/dist/jquery.min.js" charset="utf-8"></script>
   <script src="index.js" charset="utf-8"></script>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <div class="main">
-    <div class="options">
+  <div class="main row">
+    <div class="prev col-md-6">
+      <div class="row">
+        <div class="options col-md-6">
+          <h3>Escoge los síntomas</h3>
 
+        </div>
+        <div class="button col-md-6 vertical-center">
+          <button type="button" class="btn btn-primary" name="button" id="search">Buscar diagnóstico</button>
+        </div>
+      </div>
     </div>
-    <div class="button">
-      <button type="button" name="button" id="search">Buscar</button>
-    </div>
-    <div class="result">
+    <div class="result col-md-6">
       <h3 class="title"></h3>
       <div class="possibles">
         <ul class="list">
